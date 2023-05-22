@@ -16,6 +16,8 @@ function Login() {
 
 	return (
 		<>
+			<img id='main-logo' src='../../public/chess-pieces.png' />
+			<h1>CheckMate</h1>
 			<h2>Login</h2>
 			<SubmitDiv>
 				<Form onSubmit={handleSubmit}>

@@ -66,6 +66,10 @@ button:focus-visible {
   border: 1px solid black;
 }
 
+#main-logo {
+  width: 50px;
+}
+
 input,
 select {
   margin: 10px 0;

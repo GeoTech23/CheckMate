@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 const SubmitDiv = styled.div`
-	display: flex;
 	padding: 40px 20px;
 	border-radius: 10px;
 	background-color: #d5ebfc;
