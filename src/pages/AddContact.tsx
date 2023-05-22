@@ -1,6 +1,6 @@
 import React from 'react';
-import SubmitDiv from './styled/SubmitDiv';
-import Form from './styled/Form';
+import SubmitDiv from '../components/styled/SubmitDiv';
+import Form from '../components/styled/Form';
 import { Link } from 'react-router-dom';
 
 function AddContact() {

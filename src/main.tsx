@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AddContact from './components/AddContact.tsx';
-import AddChat from './components/AddChat.tsx';
-import Dashboard from './components/Dashboard.tsx';
-import Login from './components/Login.tsx';
-import Signup from './components/Signup.tsx';
-import Contact from './components/Contact.tsx';
+import AddContact from './pages/AddContact.tsx';
+import AddChat from './pages/AddChat.tsx';
+import Dashboard from './pages/Dashboard.tsx';
+import Login from './pages/Login.tsx';
+import Signup from './pages/Signup.tsx';
+import Contact from './pages/Contact.tsx';
 import StoreProvider from './store.tsx';
 import './index.css';
 

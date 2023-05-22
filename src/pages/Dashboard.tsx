@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DashDiv from './styled/DashDiv';
-import ContactDiv from './styled/ContactDiv';
+import DashDiv from '../components/styled/DashDiv';
+import ContactDiv from '../components/styled/ContactDiv';
 import { StoreContext } from '../store';
 
 function Dashboard() {
 	const { user, setUser, setLoggedIn } = React.useContext(StoreContext);
 
-  const handleLogout = () => {
-    setUser('');
-    setLoggedIn(false);
-  }
+	const handleLogout = () => {
+		setUser('');
+		setLoggedIn(false);
+	};
 
 	const sampleContacts = [];
 	for (let i = 0; i < 4; i++) {
@@ -37,9 +37,9 @@ function Dashboard() {
 			<Link to='/addContact'>
 				<p>Add Contact</p>
 			</Link>
-      <Link to='/' onClick={handleLogout}>
-        <p>Logout</p>
-      </Link>
+			<Link to='/' onClick={handleLogout}>
+				<p>Logout</p>
+			</Link>
 		</>
 	);
 }

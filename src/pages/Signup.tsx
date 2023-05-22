@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthDiv from './styled/SubmitDiv';
-import Form from './styled/Form';
+import SubmitDiv from '../components/styled/SubmitDiv';
+import Form from '../components/styled/Form';
 
 function Signup() {
 	const handleSubmit = (e: React.SyntheticEvent) => {
@@ -10,7 +10,7 @@ function Signup() {
 	return (
 		<>
 			<h2>Sign-Up</h2>
-			<AuthDiv>
+			<SubmitDiv>
 				<Form onSubmit={handleSubmit}>
 					<input type='text' placeholder='username' required />
 					<input type='password' placeholder='password' required />
@@ -18,7 +18,7 @@ function Signup() {
 					<input type='text' placeholder='phone number' required />
 					<button type='submit'>Sign-Up</button>
 				</Form>
-			</AuthDiv>
+			</SubmitDiv>
 
 			<Link to='/'>
 				<p>Login</p>

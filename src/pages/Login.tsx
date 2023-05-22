@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import SubmitDiv from './styled/SubmitDiv';
+import SubmitDiv from '../components/styled/SubmitDiv';
 import { Link, useNavigate } from 'react-router-dom';
-import Form from './styled/Form';
+import Form from '../components/styled/Form';
 import { StoreContext } from '../store';
 
 function Login() {
@@ -18,8 +18,8 @@ function Login() {
 		<>
 			<img id='main-logo' src='../../public/chess-pieces.png' />
 			<h1>CheckMate</h1>
-			<h2>Login</h2>
 			<SubmitDiv>
+				<h2>Login</h2>
 				<Form onSubmit={handleSubmit}>
 					<input type='text' placeholder='username' required />
 					<input type='text' placeholder='password' required />
