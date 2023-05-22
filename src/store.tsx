@@ -1,7 +1,7 @@
 import React from 'react';
 
+export const StoreContext = React.createContext();
 export default ({ children }) => {
-	const StoreContext = React.createContext({});
 	const [user, setUser] = React.useState('');
 	const [loggedIn, setLoggedIn] = React.useState(false);
 	const [currentContact, setCurrentContact] = React.useState({});
