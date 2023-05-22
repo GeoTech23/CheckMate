@@ -1,10 +1,33 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './components/App.tsx';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import AddChat from './components/AddChat.tsx';
+import AddContact from './components/AddContact.tsx';
+import Dashboard from './components/Dashboard.tsx';
+import Login from './components/Login.tsx';
+import Signup from './components/Signup.tsx';
+import Contact from './components/Contact.tsx';
+import StoreProvider from './store.tsx';
+
+const router = createBrowserRouter([
+	{ path: '/', element: <Login /> },
+	{ path: '/signup', element: <Signup /> },
+	{ path: '/dashboard', element: <Dashboard /> },
+	{ path: '/addcontact', element: <AddContact /> },
+	{ path: '/contact', element: <Contact /> },
+	{ path: '/chat', element: <AddChat /> },
+]);
+
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+	<React.StrictMode>
+    <StoreProvider>
+				<RouterProvider router={router}>
+					<App />
+				</RouterProvider>
+    </StoreProvider>    
+	</React.StrictMode>
+);
