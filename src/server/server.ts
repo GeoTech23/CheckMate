@@ -1,0 +1,31 @@
+import express, { json, urlencoded } from 'express';
+import { Request, Response } from 'express';
+import chatRouter from './routes/chatRouter'
+import contactRouter from './routes/contactRouter'
+// import path from 'path';
+const app = express();
+const PORT = 3000;
+
+app.use(json());
+app.use(urlencoded({ extended: true })); 
+app.use('/chat', chatRouter);
+app.use('/contact', contactRouter);
+
+//catch-all router handler
+app.use((_req: Request, res: Response) => {
+  res.status(404).send('Page not found')
+})
+
+//Global error handler 
+app.use((err: Error, _req: Request, res: Response) => {
+  const defaultErr = {
+    log: 'Global error handler',
+    status: 500,
+    message: {err: ' - An error occurred'}
+  }
+  const error = Object.assign({}, defaultErr, err);
+  return res.status(error.status).json(error.message);
+})
+
+
+app.listen(PORT, ()=> console.log('server running ', PORT));
