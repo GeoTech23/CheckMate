@@ -72,6 +72,11 @@ select {
   padding: 5px;
 }
 
+input {
+  border: none;
+  border-radius: 3px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
