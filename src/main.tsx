@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App.tsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import AddContact from './components/AddContact.tsx';
 import AddChat from './components/AddChat.tsx';
 import Dashboard from './components/Dashboard.tsx';
