@@ -16,7 +16,7 @@ function Login() {
 
 	return (
 		<>
-			<img id='main-logo' src='../../public/chess-pieces.png' />
+			<img id='main-logo' src='/chess-pieces.png' />
 			<h1>CheckMate</h1>
 			<SubmitDiv>
 				<h2>Login</h2>
