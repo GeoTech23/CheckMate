@@ -10,7 +10,7 @@ function AddChat() {
 		ratingOptions.push(<option value={i}>{i}</option>);
 	}
 
-	function handleSubmit(e) {
+	function handleSubmit(e: React.SyntheticEvent) {
 		e.preventDefault();
 	}
 	return (

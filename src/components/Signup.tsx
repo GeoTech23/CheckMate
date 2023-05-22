@@ -4,7 +4,7 @@ import AuthDiv from './styled/SubmitDiv';
 import Form from './styled/Form';
 
 function Signup() {
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.SyntheticEvent) => {
 		e.preventDefault();
 	};
 	return (

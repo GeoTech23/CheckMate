@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App.tsx';
-import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AddContact from './components/AddContact.tsx';
 import AddChat from './components/AddChat.tsx';
@@ -10,6 +9,7 @@ import Login from './components/Login.tsx';
 import Signup from './components/Signup.tsx';
 import Contact from './components/Contact.tsx';
 import StoreProvider from './store.tsx';
+import './index.css';
 
 const router = createBrowserRouter([
 	{ path: '/', element: <Login /> },

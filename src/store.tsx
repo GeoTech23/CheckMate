@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const StoreContext = React.createContext();
+export const StoreContext = React.createContext(null);
 export default ({ children }) => {
 	const [user, setUser] = React.useState('');
 	const [loggedIn, setLoggedIn] = React.useState(false);

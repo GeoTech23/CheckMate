@@ -4,7 +4,7 @@ import Form from './styled/Form';
 import { Link } from 'react-router-dom';
 
 function AddContact() {
-	function handleSubmit(e) {
+	function handleSubmit(e: React.SyntheticEvent) {
 		e.preventDefault();
 	}
 	return (
