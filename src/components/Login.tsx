@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import AuthDiv from './styled/SubmitDiv';
+import SubmitDiv from './styled/SubmitDiv';
 import { Link, useNavigate } from 'react-router-dom';
 import Form from './styled/Form';
 import { StoreContext } from '../store';
@@ -17,13 +17,13 @@ function Login() {
 	return (
 		<>
 			<h2>Login</h2>
-			<AuthDiv>
+			<SubmitDiv>
 				<Form onSubmit={handleSubmit}>
 					<input type='text' placeholder='username' required />
 					<input type='text' placeholder='password' required />
 					<button type='submit'>Login</button>
 				</Form>
-			</AuthDiv>
+			</SubmitDiv>
 
 			<Link to='/signup'>Sign-up</Link>
 			<Link to='/dashboard'>

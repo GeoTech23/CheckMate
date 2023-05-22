@@ -5,9 +5,14 @@ import ContactDiv from './styled/ContactDiv';
 import { StoreContext } from '../store';
 
 function Dashboard() {
-	const { user } = React.useContext(StoreContext);
-	const sampleContacts = [];
+	const { user, setUser, setLoggedIn } = React.useContext(StoreContext);
 
+  const handleLogout = () => {
+    setUser('');
+    setLoggedIn(false);
+  }
+
+	const sampleContacts = [];
 	for (let i = 0; i < 4; i++) {
 		sampleContacts.push(
 			<ContactDiv>
@@ -17,6 +22,7 @@ function Dashboard() {
 			</ContactDiv>
 		);
 	}
+
 	return (
 		<>
 			<h2>Welcome, {user}</h2>
@@ -31,6 +37,9 @@ function Dashboard() {
 			<Link to='/addContact'>
 				<p>Add Contact</p>
 			</Link>
+      <Link to='/' onClick={handleLogout}>
+        <p>Logout</p>
+      </Link>
 		</>
 	);
 }

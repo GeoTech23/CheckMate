@@ -5,6 +5,7 @@ function Contact() {
 	return (
 		<>
 			<p>This is Contact</p>
+			<Link to='/addchat'>Add Chat</Link>
 			<Link to='/'>
 				<p>Login</p>
 			</Link>
