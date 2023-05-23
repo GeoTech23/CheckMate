@@ -14,7 +14,7 @@ app.use('/contact', contactRouter);
 
 //catch-all router handler
 
-app.get('/api/test', (_req: Request, res: Response) => {
+app.get('/test', (_req: Request, res: Response) => {
 	console.log('route hit');
 	res.send('get route works');
 });
