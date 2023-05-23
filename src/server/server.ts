@@ -18,7 +18,7 @@ app.get('/test', (_req: Request, res: Response) => {
 });
 
 //catch-all router handler
-app.use('/', (_req: Request, res: Response) => {
+app.use((_req: Request, res: Response) => {
 	console.log('server');
 	res.status(404).send('Page not found');
 });
