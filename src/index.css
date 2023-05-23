@@ -101,6 +101,13 @@ input {
   align-self: flex-end;
 }
 
+label {
+  text-align: left;
+  font-weight: bold;
+}
+#add-contact{
+  background-color: #30e242
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

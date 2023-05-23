@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 const ContactDiv = styled.div`
 	display: flex;
+	flex-flow: column-nowrap;
 	border-radius: 10px;
 	height: 100px;
 	width: 100px;

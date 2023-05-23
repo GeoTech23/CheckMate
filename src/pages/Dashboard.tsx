@@ -49,6 +49,10 @@ function Dashboard() {
 				) : (
 					<p>You have no contacts yet!</p>
 				)}
+
+				<ContactDiv id='add-contact' onClick={() => navigate('/addContact')}>
+					<h2>+</h2>
+				</ContactDiv>
 			</DashDiv>
 			<Link to='/'>
 				<p>Login</p>
