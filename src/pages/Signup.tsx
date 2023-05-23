@@ -6,6 +6,7 @@ import Form from '../components/styled/Form';
 function Signup() {
 	const handleSubmit = (e: React.SyntheticEvent) => {
 		e.preventDefault();
+		fetch('/api/test');
 	};
 	return (
 		<>
