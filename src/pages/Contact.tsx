@@ -1,7 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { useEffect, useState }from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Message from './Message';
+// import use Params from react router
+// add params inside contact ()
 function Contact() {
+	const { userId } = useParams();
+	// const [messages, setMessages] = useState([]);
+
 	const mockData = {
 		user: 'grandma',
 		phone_number: '555-555-5555',
@@ -12,6 +17,13 @@ function Contact() {
 		],
 	};
 	
+	// useEffect(() => {
+	// 	fetch(`/api/chat/`)
+	// })
+
+	const msgs = mockData.chats.map((msg) => {
+		return <Message message={msg} />
+	})
 	
 	return (
 		<>
@@ -20,9 +32,7 @@ function Contact() {
 				<h3>{mockData.phone_number}</h3>
 			</div>
 			<div>
-				{mockData.chats.map((message) => {
-					return <div> Your message here...</div>
-				})}
+				{msgs}
 			</div>	
 
 			<Link to='/addchat'>Add Chat</Link>

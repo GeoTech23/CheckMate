@@ -16,7 +16,7 @@ function Dashboard() {
 	for (let i = 0; i < 4; i++) {
 		sampleContacts.push(
 			<ContactDiv>
-				<Link to='/contact'>
+				<Link to={`/contact/${i}`}>
 					<p>User Page</p>
 				</Link>
 			</ContactDiv>
