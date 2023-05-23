@@ -44,6 +44,7 @@ function Signup() {
 		<>
 			<h2>Sign-Up</h2>
 			<SubmitDiv>
+				<h4>Create Account</h4>
 				<Form onSubmit={handleSubmit}>
 					<input type='text' placeholder='username' required />
 					<input type='password' placeholder='password' required />

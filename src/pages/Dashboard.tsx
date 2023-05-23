@@ -12,17 +12,29 @@ function Dashboard() {
 		setLoggedIn(false);
 	};
 
+	function iconSrc(relationship) {
+		switch (relationship) {
+			case 'family':
+				return '../../src/assets/blue.png';
+			case 'friend':
+				return '../../src/assets/green.png';
+			case 'significantOther':
+				return '../../src/assets/red.png';
+		}
+	}
+
 	const contacts = [
-		{ name: 'Grandma', id: 1 },
-		{ name: 'Grandpa', id: 2 },
-		{ name: 'Elena', id: 3 },
-		{ name: 'Adam', id: 4 },
+		{ name: 'Grandma', id: 1, relationship: 'family' },
+		{ name: 'Grandpa', id: 2, relationship: 'family' },
+		{ name: 'Elena', id: 3, relationship: 'significantOther' },
+		{ name: 'Adam', id: 4, relationship: 'friend' },
 	];
 	const contactElements = [];
 	contacts.forEach((contact) => {
 		contactElements.push(
 			<ContactDiv onClick={() => navigate(`/contact/${contact.id}`)}>
 				<p onClick={() => navigate(`/contact/${contact.id}`)}>{contact.name}</p>
+				<img className='relat-icon' src={iconSrc(contact.relationship)} />
 			</ContactDiv>
 		);
 	});
