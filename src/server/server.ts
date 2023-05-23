@@ -12,18 +12,18 @@ app.use(urlencoded({ extended: true }));
 app.use('/chat', chatRouter);
 app.use('/contact', contactRouter);
 
-//catch-all router handler
-
 app.get('/test', (_req: Request, res: Response) => {
 	console.log('route hit');
 	res.send('get route works');
 });
 
-//Global error handler
+//catch-all router handler
 app.use('/', (_req: Request, res: Response) => {
 	console.log('server');
 	res.status(404).send('Page not found');
 });
+
+//Global error handler
 app.use((err: Error, _req: Request, res: Response) => {
 	const defaultErr = {
 		log: 'Global error handler',
