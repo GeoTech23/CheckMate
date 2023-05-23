@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-const MessageTitle = styled.p`
+const MessageTitle = styled.span`
   font-size: 1em;
   color: white;
   

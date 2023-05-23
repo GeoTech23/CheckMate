@@ -1,6 +1,7 @@
 import { useEffect, useState }from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Message from './Message';
+import MessageContainerDiv from '../components/styled/MessageContainerDiv';
 // import use Params from react router
 // add params inside contact ()
 function Contact() {
@@ -31,9 +32,9 @@ function Contact() {
 				<h2>{mockData.user}</h2>
 				<h3>{mockData.phone_number}</h3>
 			</div>
-			<div>
+			<MessageContainerDiv>
 				{msgs}
-			</div>	
+			</MessageContainerDiv>	
 
 			<Link to='/addchat'>Add Chat</Link>
 			<Link to='/'>
