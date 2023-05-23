@@ -2,6 +2,8 @@ import express, { json, urlencoded } from 'express';
 import { Request, Response } from 'express';
 import chatRouter from './routes/chatRouter.ts';
 import contactRouter from './routes/contactRouter.ts';
+import authRouter from './routes/authRouter.ts'
+
 // import path from 'path';
 const app = express();
 const PORT = 3000;
@@ -9,6 +11,8 @@ const PORT = 3000;
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
+app.use('/login', authRouter);
+// app.use('/signup', signupRouter);
 app.use('/chat', chatRouter);
 app.use('/contact', contactRouter);
 
@@ -18,9 +22,9 @@ app.get('/test', (_req: Request, res: Response) => {
 });
 
 //catch-all router handler
-app.use((_req: Request, res: Response) => {
+app.use('/', (_req: Request, res: Response) => {
 	console.log('server');
-	res.status(404).send('Page not found');
+	res.status(404).send('Page not found 2');
 });
 
 //Global error handler
