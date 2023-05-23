@@ -11,9 +11,9 @@ function Contact() {
 		user: 'grandma',
 		phone_number: '555-555-5555',
 		chats: [
-			{ date: '1', message: 'this is a message' },
-			{ date: '2', message: 'this is a message' },
-			{ date: '3', message: 'this is a message' },
+			{ date: '1', message: 'this is a message', rating: 10 },
+			{ date: '2', message: 'this is a message', rating: 8 },
+			{ date: '3', message: 'this is a message', rating: 2 },
 		],
 	};
 	
