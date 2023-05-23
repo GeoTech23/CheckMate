@@ -4,16 +4,19 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite --open",
+		"dev": "concurrently 'node ./src/server/server.ts' 'vite --open'",
 		"build": "tsc && vite build",
 		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"concurrently": "^8.0.1",
+		"nodemon": "^2.0.22",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.11.2",
-		"styled-components": "^6.0.0-rc.1"
+		"styled-components": "^6.0.0-rc.1",
+		"ts-node": "^10.9.1"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.28",
