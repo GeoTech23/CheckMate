@@ -1,15 +1,21 @@
 import React from 'react';
+import MessageDiv from '../components/styled/MessageDiv';
+import MessageTitle from '../components/styled/MessageTitle';
 
 function Message({ message }) {
 
 
   return (
     <>
-      <div>
-        <h4>{message.date}</h4>
-        {/* <h1>{props.rating}</h1> */}
-        <p>{message.message}</p>
-      </div>
+      <MessageDiv>
+        <MessageTitle>
+          {message.date}
+          {message.rating}
+        </MessageTitle>
+        <div>
+          <p>{message.message}</p>
+        </div>
+      </MessageDiv>
     </>
     
   );
