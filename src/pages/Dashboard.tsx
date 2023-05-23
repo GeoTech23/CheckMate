@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DashDiv from '../components/styled/DashDiv';
 import ContactDiv from '../components/styled/ContactDiv';
 import { StoreContext } from '../store';
 
 function Dashboard() {
 	const { user, setUser, setLoggedIn } = React.useContext(StoreContext);
-
+	const navigate = useNavigate();
 	const handleLogout = () => {
 		setUser('');
 		setLoggedIn(false);
@@ -21,10 +21,8 @@ function Dashboard() {
 	const contactElements = [];
 	contacts.forEach((contact) => {
 		contactElements.push(
-			<ContactDiv>
-				<Link to={`/contact/${contact.id}`}>
-					<p>User Page</p>
-				</Link>
+			<ContactDiv onClick={() => navigate(`/contact/${contact.id}`)}>
+				<p onClick={() => navigate(`/contact/${contact.id}`)}>{contact.name}</p>
 			</ContactDiv>
 		);
 	});
