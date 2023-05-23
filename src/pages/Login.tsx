@@ -5,13 +5,40 @@ import Form from '../components/styled/Form';
 import { StoreContext } from '../store';
 
 function Login() {
-	const { user, setUser } = useContext(StoreContext);
+	const { setUser, setLoggedIn, setUserId, setContacts } =
+		useContext(StoreContext);
 	const navigate = useNavigate();
 
-	function handleSubmit(e) {
+	// function handleSubmit(e) {
+	// 	e.preventDefault();
+	// 	setUser(e.target[0].value);
+	// 	navigate('/dashboard');
+	// }
+
+	function handleSubmit(e: React.SyntheticEvent) {
 		e.preventDefault();
-		setUser(e.target[0].value);
-		navigate('/dashboard');
+		const username = e.target[0].value;
+		const password = e.target[1].value;
+		// console.log(username, password);
+		fetch('/api/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ username, password }),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				setUser(username);
+				setLoggedIn(true);
+				setUserId(data.userId);
+				setContacts(data.contacts);
+				navigate('/dashboard');
+			})
+			.catch((err) => {
+				console.log(err);
+				window.alert('Error logging in. Please try again later');
+			});
 	}
 
 	return (
