@@ -9,9 +9,14 @@ const ContactDiv = styled.div`
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	background-color: #3b5796;
 	color: white;
+	transition: 0.2s;
 	&:hover {
 		cursor: pointer;
 		background-color: #4287f5;
+	}
+	&:active {
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+			rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 	}
 `;
 
