@@ -23,7 +23,7 @@ function Dashboard() {
 		contactElements.push(
 			<ContactDiv>
 				<Link to={`/contact/${contact.id}`}>
-					<p>{contact.name}</p>
+					<p>User Page</p>
 				</Link>
 			</ContactDiv>
 		);
