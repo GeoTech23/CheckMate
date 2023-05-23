@@ -32,10 +32,14 @@ function Dashboard() {
 	const contactElements = [];
 	contacts.forEach((contact) => {
 		contactElements.push(
-			<ContactDiv onClick={() => navigate(`/contact/${contact.id}`)}>
-				<p onClick={() => navigate(`/contact/${contact.id}`)}>{contact.name}</p>
-				<img className='relat-icon' src={iconSrc(contact.relationship)} />
-			</ContactDiv>
+			<div className='contact-wrapper'>
+				<img
+					className='relat-icon'
+					src={iconSrc(contact.relationship)}
+					onClick={() => navigate(`/contact/${contact.id}`)}
+				/>
+				<p>{contact.name}</p>
+			</div>
 		);
 	});
 
@@ -49,10 +53,15 @@ function Dashboard() {
 				) : (
 					<p>You have no contacts yet!</p>
 				)}
-
-				<ContactDiv id='add-contact' onClick={() => navigate('/addContact')}>
-					<h2>+</h2>
-				</ContactDiv>
+				<div className='contact-wrapper'>
+					{' '}
+					<img
+						className='relat-icon'
+						src={'../../src/assets/add.png'}
+						onClick={() => navigate(`/addContact`)}
+					/>
+					<p>Add Contact</p>
+				</div>
 			</DashDiv>
 			<Link to='/'>
 				<p>Login</p>

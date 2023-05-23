@@ -128,8 +128,21 @@ input {
 }
 
 .relat-icon {
-  height: 20px;
+  height: 50px;
   align-self: flex-end;
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2)
+  }
+}
+
+.contact-wrapper {
+  transition: .3s;
+  margin: 5px;
+  padding: 10px;
+
 }
 
 label {
