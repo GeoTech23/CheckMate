@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import chatRouter from './routes/chatRouter.ts';
 import contactRouter from './routes/contactRouter.ts';
 import authRouter from './routes/authRouter.ts'
+import authController from './controllers/authController.ts'
 
 // import path from 'path';
 const app = express();
@@ -10,15 +11,24 @@ const PORT = 3000;
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
-
 app.use('/login', authRouter);
 app.use('/chat', chatRouter);
 app.use('/contact', contactRouter);
 
+app.post('/signup', authController.createUser, (req: Request, res: Response) => {
+	if (res.locals.user === true) {
+	console.log(res.locals.user)
+	} else {
+	console.log(false)
+	throw new Error
+	}
+})
+
+
+
 //catch-all router handler
 app.use('/', (_req: Request, res: Response) => {
-	console.log('server');
-	res.status(404).send('Page not found 2');
+	console.log('Page not found')
 });
 
 //Global error handler

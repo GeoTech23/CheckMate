@@ -22,17 +22,17 @@ const chatController = {
 
   //taking a contactid and a message, datem  and adding it to the database
   addChat: (req, res, next) => {
-    const { userId } = req.params.userId;
-    const { message_text, date, rating, contactId} = req.body;
+    const { contactId } = req.params;
+    const { message_text, date, rating} = req.body;
     const queryStr = `
     INSERT INTO notes (message_text, date, rating, contactId)
-    VALUES ('${message_text}', '${date}', '${rating}', '${contactId}');
+    VALUES ( '${message_text}', '${date}', '${rating}', '${contactId}');
     `
     contactDB.query(queryStr)
       .then((data) => {
         console.log('Successsfully added - ', data, ' note')
         res.locals.notes = data; 
-        return next; 
+        return next(); 
       }
       )
       .catch((err) => {
@@ -42,10 +42,9 @@ const chatController = {
 
   //taking a contactid and a messageid and deleting the message
   deleteChat: (req, res, next) => {
-    const { contactId } = req.params.userId;
-    const { messageId } = req.body;
+    const { contactId, messageId } = req.params;
     const queryStr = `
-    DELETE FROM notes WHERE messageId = ${ messageId } AND contactId = ${ contactId };
+    DELETE FROM notes WHERE messageId = ${ messageId } AND contactId = '${ contactId }';
     `
     contactDB.query(queryStr)
       .then((data) => {
@@ -60,10 +59,10 @@ const chatController = {
   },
   //taking a contactid and a messageid and updating the message and rating
   updateChat: (req, res, next) => {
-    const { contactId } = req.params.userId;
-    const { messageId, message_text, rating } = req.body;
+    const { contactId, messageId } = req.params;
+    const {message_text, rating } = req.body;
     const queryStr = `
-    UPDATE notes SET message = '${ message_text }', rating = '${ rating }' WHERE messageId = ${ messageId } AND contactId = ${ contactId };
+    UPDATE notes SET message_text = '${ message_text }', rating = '${ rating }' WHERE messageId = '${ messageId }' AND contactId = '${ contactId }';
     `
     contactDB.query(queryStr)
       .then((data) => {
