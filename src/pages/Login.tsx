@@ -54,10 +54,10 @@ function Login() {
 					<button type='submit'>Login</button>
 				</Form>
 			</SubmitDiv>
-
-			<Link to='/signup'>Sign-up</Link>
+			<p style={{ color: 'white' }}>Don't have an account?</p>
+			<Link to='/signup'><button style={{margin: '10px'}}>Sign-up</button></Link>
 			<Link to='/dashboard'>
-				<p> To Dashboard </p>
+				<p > To Dashboard </p>
 			</Link>
 		</>
 	);
