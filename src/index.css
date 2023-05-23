@@ -105,9 +105,14 @@ label {
   text-align: left;
   font-weight: bold;
 }
-#add-contact{
-  background-color: #30e242
+
+#add-contact {
+  background-color: #30e242;
+  &:hover{
+    background-color: #1dd82f;
+  }
 }
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

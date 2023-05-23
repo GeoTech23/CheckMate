@@ -8,13 +8,14 @@ const ContactDiv = styled.div`
 	width: 100px;
 	justify-content: center;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	background-color: #3b5796;
+	background-color: #646cff;
 	color: white;
 	transition: 0.2s;
 	padding: 10px;
 	&:hover {
 		cursor: pointer;
 		background-color: #4287f5;
+		transform: scale(1.05);
 	}
 	&:active {
 		box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
