@@ -12,14 +12,8 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 
 app.use('/login', authRouter);
-// app.use('/signup', signupRouter);
 app.use('/chat', chatRouter);
 app.use('/contact', contactRouter);
-
-app.get('/test', (_req: Request, res: Response) => {
-	console.log('route hit');
-	res.send('get route works');
-});
 
 //catch-all router handler
 app.use('/', (_req: Request, res: Response) => {
