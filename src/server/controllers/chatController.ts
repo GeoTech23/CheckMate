@@ -1,19 +1,82 @@
-
+import { Request, Response, NextFunction } from 'express';
+import contactDB from '../models/contactModel.ts';
 
 const chatController = {
-  getChat: () => {
-    console.log('testing1')
+  //taking a contactid and returning all the messages associated with that contact
+  getChat: (req, res, next) => {
+    const { contactId } = req.params.userId;
+    const queryStr = `
+    SELECT * FROM notes WHERE contactId = ${ contactId };
+    `
+    contactDB.query(queryStr)
+      .then((data) => {
+        console.log('data here', data)
+        res.locals.notes = data.rows; 
+        return next(); 
+      }
+      )
+      .catch((err) => {
+      return next((err))
+    })
   },
-  addChat: () => {
-    console.log('testing2')
+
+  //taking a contactid and a message, datem  and adding it to the database
+  addChat: (req, res, next) => {
+    const { userId } = req.params.userId;
+    const { message_text, date, rating, contactId} = req.body;
+    const queryStr = `
+    INSERT INTO notes (message_text, date, rating, contactId)
+    VALUES ('${message_text}', '${date}', '${rating}', '${contactId}');
+    `
+    contactDB.query(queryStr)
+      .then((data) => {
+        console.log('Successsfully added - ', data, ' note')
+        res.locals.notes = data; 
+        return next; 
+      }
+      )
+      .catch((err) => {
+      return next((err))
+    })
   },
-  deleteChat: () => {
-    console.log('testing3')
+
+  //taking a contactid and a messageid and deleting the message
+  deleteChat: (req, res, next) => {
+    const { contactId } = req.params.userId;
+    const { messageId } = req.body;
+    const queryStr = `
+    DELETE FROM notes WHERE messageId = ${ messageId } AND contactId = ${ contactId };
+    `
+    contactDB.query(queryStr)
+      .then((data) => {
+        console.log('Succesfully deleted - ', data, ' row(s)')
+        res.locals.notes = data;
+        return next();
+      }
+      )
+      .catch((err) => {
+      return next((err))
+    })
   },
-  updateChat: () => {
-    console.log('testing4')
-  }
-};
+  //taking a contactid and a messageid and updating the message and rating
+  updateChat: (req, res, next) => {
+    const { contactId } = req.params.userId;
+    const { messageId, message_text, rating } = req.body;
+    const queryStr = `
+    UPDATE notes SET message = '${ message_text }', rating = '${ rating }' WHERE messageId = ${ messageId } AND contactId = ${ contactId };
+    `
+    contactDB.query(queryStr)
+      .then((data) => {
+        console.log('Succesfully updated - ', data, ' row(s)')
+        res.locals.notes = data;
+        return next();
+      }
+      )
+      .catch((err) => {
+      return next((err))
+    })
+  },
+}
 
 
 

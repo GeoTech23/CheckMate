@@ -4,25 +4,25 @@ const chatRouter = Router();
 
 
 //Retrieve chat
-chatRouter.get('/:id', chatController.getChat, (_req,res)=> {
+chatRouter.get('/:userId/:contactId', chatController.getChat, (_req,res)=> {
   console.log('Listing all chats')
   return res.status(200).json(res.locals.chats)
 })
 
 //Adding chat
-chatRouter.post('/:id', chatController.addChat, (_req,res)=> {
+chatRouter.post('/:userId/:contactId', chatController.addChat, (_req,res)=> {
   console.log('added chat')
   return res.status(200).json(res.locals.chats)
 })
 
 //Delete chat
-chatRouter.delete('/:id', chatController.deleteChat, (_req,res)=> {
+chatRouter.delete('/:userId/:contactId/:messageId', chatController.deleteChat, (_req,res)=> {
   console.log('Deleted chat')
   return res.status(200).json(res.locals.chats)
 })
 
 //Update chat
-chatRouter.patch('/:id', chatController.updateChat, (_req,res)=> {
+chatRouter.patch('/:userId/:contactId/:messageId', chatController.updateChat, (_req,res)=> {
   console.log('Updated chat')
   return res.status(200).json(res.locals.chats)
 })
