@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import DashDiv from '../components/styled/DashDiv';
-import ContactDiv from '../components/styled/ContactDiv';
 import { StoreContext } from '../store';
 
 function Dashboard() {
@@ -18,7 +17,7 @@ function Dashboard() {
 				return '../../src/assets/blue.png';
 			case 'friend':
 				return '../../src/assets/green.png';
-			case 'significantOther':
+			case 'significant other':
 				return '../../src/assets/red.png';
 		}
 	}
@@ -26,7 +25,7 @@ function Dashboard() {
 	const contacts = [
 		{ name: 'Grandma', id: 1, relationship: 'family' },
 		{ name: 'Grandpa', id: 2, relationship: 'family' },
-		{ name: 'Elena', id: 3, relationship: 'significantOther' },
+		{ name: 'Elena', id: 3, relationship: 'significant other' },
 		{ name: 'Adam', id: 4, relationship: 'friend' },
 	];
 	const contactElements = [];

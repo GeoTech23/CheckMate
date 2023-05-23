@@ -45,7 +45,7 @@ function Login() {
 		<>
 			<img id='main-logo' src='/chess-pieces.png' />
 			<h1>CheckMate</h1>
-			<h4 id='tagline'>Check in with the ones you love</h4>
+			<h4 id='tagline'>Keep your connections in check</h4>
 			<SubmitDiv>
 				<h2>Login</h2>
 				<Form onSubmit={handleSubmit}>
