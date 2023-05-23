@@ -2,9 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import DashDiv from '../components/styled/DashDiv';
 import { StoreContext } from '../store';
+import iconSrc from '../utils/iconSrc';
 
 function Dashboard() {
-	const { user, setUser, setLoggedIn } = React.useContext(StoreContext);
+	const { user, setUser, setLoggedIn, setCurrentContact } = React.useContext(StoreContext);
 	const navigate = useNavigate();
 	const handleLogout = () => {
 		setUser('');
@@ -22,6 +23,7 @@ function Dashboard() {
 		}
 	}
 
+
 	const contacts = [
 		{ name: 'Grandma', id: 1, relationship: 'family' },
 		{ name: 'Grandpa', id: 2, relationship: 'family' },
@@ -35,7 +37,10 @@ function Dashboard() {
 				<img
 					className='relat-icon'
 					src={iconSrc(contact.relationship)}
-					onClick={() => navigate(`/contact/${contact.id}`)}
+					onClick={() => {
+						navigate(`/contact/${contact.id}`)
+						setCurrentContact(contact)
+					}}
 				/>
 				<p>{contact.name}</p>
 			</div>
@@ -53,7 +58,6 @@ function Dashboard() {
 					<p>You have no contacts yet!</p>
 				)}
 				<div className='contact-wrapper'>
-					{' '}
 					<img
 						className='relat-icon'
 						src={'../../src/assets/add.png'}
@@ -63,16 +67,7 @@ function Dashboard() {
 				</div>
 			</DashDiv>
 			<Link to='/'>
-				<p>Login</p>
-			</Link>
-			<Link to='/signup'>
-				<p>Sign-Up</p>
-			</Link>
-			<Link to='/addContact'>
-				<p>Add Contact</p>
-			</Link>
-			<Link to='/' onClick={handleLogout}>
-				<p>Logout</p>
+				<button onClick={handleLogout} style={{margin: '20px'}}>Logout</button>
 			</Link>
 		</>
 	);

@@ -54,9 +54,7 @@ function Signup() {
 				</Form>
 			</SubmitDiv>
 
-			<Link to='/'>
-				<p>Login</p>
-			</Link>
+			<Link to='/'><button style={{margin: '20px'}}>← Back to Login</button></Link>
 			<Link to='/dashboard'>
 				<p>Dashboard</p>
 			</Link>

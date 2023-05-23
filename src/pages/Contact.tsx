@@ -1,27 +1,38 @@
-import { useEffect, useState }from 'react';
-import { Link, useParams } from 'react-router-dom';
+
+import React, { useEffect, useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import Message from './Message';
 import MessageContainerDiv from '../components/styled/MessageContainerDiv';
+import MessageDiv from '../components/styled/MessageDiv';
+import { StoreContext } from '../store';
+import iconSrc from '../utils/iconSrc';
 // import use Params from react router
 // add params inside contact ()
 function Contact() {
 	const { userId } = useParams();
+	const navigate = useNavigate();
+	const {currentContact} = React.useContext(StoreContext)
 	// const [messages, setMessages] = useState([]);
 
 	const mockData = {
 		user: 'grandma',
 		phone_number: '555-555-5555',
 		chats: [
-			{ date: '1', message: 'this is a message', rating: 10 },
-			{ date: '2', message: 'this is a message', rating: 8 },
-			{ date: '3', message: 'this is a message', rating: 2 },
+			{ id: 1, date: '10/12/1999', message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `, rating: 10 },
+			{ id: 2, date: '10/13/1999', message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `, rating: 8 },
+			{ id: 3, date: '10/14/1999', message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `, rating: 2 },
+			{ id: 4, date: '10/14/1999', message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `, rating: 2 },
 		],
 	};
-	
-	// useEffect(() => {
-	// 	fetch(`/api/chat/`)
-	// })
 
+	
+
+	// add chat button handleClick event to navigate to AddChat page
+	function handleClick(){
+		navigate('/addchat');
+	}
+
+	// loop through messages to build msgs array with Message components
 	const msgs = mockData.chats.map((msg) => {
 		return <Message message={msg} />
 	})
@@ -29,20 +40,21 @@ function Contact() {
 	return (
 		<>
 			<div className='contact-header'>
-				<h2>{mockData.user}</h2>
+				<img className='relat-icon' src={ iconSrc(currentContact.relationship)} />
+				<h2>{currentContact.name}</h2>
 				<h3>{mockData.phone_number}</h3>
 			</div>
-			<MessageContainerDiv>
+			<div className='call-log-container'>
+				<h3>Chat Log</h3>
+				<button style={{width: '200px', margin: '20px 0'}} onClick={handleClick}>Add Chat</button>
+				<MessageContainerDiv>
 				{msgs}
 			</MessageContainerDiv>	
-
-			<Link to='/addchat'>Add Chat</Link>
-			<Link to='/'>
-				<p>Login</p>
+			</div>
+		<Link to='/dashboard'>
+				<button style={{margin: '20px'}}>← Back to Dashboard</button>
 			</Link>
-			<Link to='/signup'>
-				<p>Sign-Up</p>
-			</Link>
+		
 		</>
 	);
 }

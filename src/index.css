@@ -82,8 +82,15 @@ form button {
   margin-top: 20px;
 }
 
+.call-log-container, .contact-header {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #d5ebfc;
+  border-radius: 5px;
+  padding: 20px 0;
+}
+
 .contact-header {
-  border: 1px solid black;
+  margin: 20px 0px;
 }
 
 @keyframes pulse {
@@ -146,7 +153,7 @@ input {
 }
 
 label {
-  text-align: left;
+  text-align: center;
   font-weight: bold;
 }
 
