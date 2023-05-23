@@ -4,22 +4,22 @@ const contactRouter = Router();
 
 
 //Retrieve contact
-contactRouter.get('/', contactController.getContacts, (_req,res)=> {
-  console.log('Listing all contacts')
+contactRouter.get('/:userId', contactController.getContacts, (req,res)=> {
+  console.log('Listing all contacts for specified user')
   return res.status(200).json(res.locals.contacts)
 })
 
 //Adding contact
-// contactRouter.post('/', contactController.addContact, (req,res)=> {
-//   console.log('Added contact')
-//   return res.status(200).json(res.locals.contacts)
-// })
+contactRouter.post('/:userId', contactController.addContact, (req,res)=> {
+  console.log('Added contact')
+  return res.status(200).json(res.locals.contacts)
+})
 
-//Delete contact
-// contactRouter.delete('/', contactController.deleteContact, (req,res)=> {
-//   console.log('Deleted contact')
-//   return res.status(200).json(res.locals.contacts)
-// })
+// Delete contact
+contactRouter.delete('/:userId/:contactId', contactController.deleteContact, (req,res)=> {
+  console.log('Deleted contact')
+  return res.status(200).json(res.locals.contacts)
+})
 
 //Update contact
 // contactRouter.patch('/', contactController.updateContact, (req,res)=> {
