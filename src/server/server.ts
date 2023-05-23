@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from 'express';
 import { Request, Response } from 'express';
-import chatRouter from './routes/chatRouter'
-import contactRouter from './routes/contactRouter'
+import chatRouter from './routes/chatRouter.ts'
+import contactRouter from './routes/contactRouter.ts'
 // import path from 'path';
 const app = express();
 const PORT = 3000;

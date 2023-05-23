@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import contactDB from '../models/contactModel'
+import contactDB from '../models/contactModel.ts'
 // import { Request, Response, NextFunction } from 'express';
 
 
