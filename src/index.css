@@ -14,11 +14,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  background-color: #93c3fc;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -47,12 +52,33 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.contact-header {
+  border: 1px solid black;
+}
+
+#main-logo {
+  width: 50px;
+}
+
+input,
+select {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -60,9 +86,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
