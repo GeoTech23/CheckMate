@@ -12,6 +12,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
 }
 
 body {
@@ -39,6 +46,13 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+h2,
+h3,
+h4 {
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 button {
@@ -50,11 +64,13 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.05);
+  background-color: #747bff;
+  color: white;
 }
 
 button:focus,
@@ -62,23 +78,84 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+form button {
+  margin-top: 20px;
+}
+
 .contact-header {
   border: 1px solid black;
 }
 
+@keyframes pulse {
+
+  0% {
+    transform: scale(1)
+  }
+
+  100% {
+    transform: scale(1.4)
+  }
+}
+
+
 #main-logo {
   width: 50px;
+  animation: .75s ease-in-out 0s infinite alternate pulse;
 }
+
+#tagline {
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
 
 input,
 select {
   margin: 10px 0;
-  padding: 5px;
+  padding: 5px 10px;
+  line-height: 23px;
 }
 
 input {
   border: none;
   border-radius: 3px;
+}
+
+.user-link {
+  color: white
+}
+
+.relat-icon {
+  height: 50px;
+  align-self: flex-end;
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2)
+  }
+}
+
+.contact-wrapper {
+  transition: .3s;
+  margin: 5px;
+  padding: 10px;
+
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+}
+
+#add-contact {
+  background-color: #30e242;
+
+  &:hover {
+    background-color: #1dd82f;
+  }
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,17 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { useEffect, useState }from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Message from './Message';
+import MessageContainerDiv from '../components/styled/MessageContainerDiv';
+// import use Params from react router
+// add params inside contact ()
 function Contact() {
+	const { userId } = useParams();
+	// const [messages, setMessages] = useState([]);
+
 	const mockData = {
 		user: 'grandma',
 		phone_number: '555-555-5555',
 		chats: [
-			{ date: '1', message: 'this is a message' },
-			{ date: '2', message: 'this is a message' },
-			{ date: '3', message: 'this is a message' },
+			{ date: '1', message: 'this is a message', rating: 10 },
+			{ date: '2', message: 'this is a message', rating: 8 },
+			{ date: '3', message: 'this is a message', rating: 2 },
 		],
 	};
 	
+	// useEffect(() => {
+	// 	fetch(`/api/chat/`)
+	// })
+
+	const msgs = mockData.chats.map((msg) => {
+		return <Message message={msg} />
+	})
 	
 	return (
 		<>
@@ -19,11 +32,9 @@ function Contact() {
 				<h2>{mockData.user}</h2>
 				<h3>{mockData.phone_number}</h3>
 			</div>
-			<div>
-				{mockData.chats.map((message) => {
-					return <div> Your message here...</div>
-				})}
-			</div>	
+			<MessageContainerDiv>
+				{msgs}
+			</MessageContainerDiv>	
 
 			<Link to='/addchat'>Add Chat</Link>
 			<Link to='/'>
