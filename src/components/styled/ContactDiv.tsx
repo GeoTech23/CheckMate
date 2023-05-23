@@ -7,6 +7,7 @@ const ContactDiv = styled.div`
 	height: 100px;
 	width: 100px;
 	justify-content: center;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 export default ContactDiv;
