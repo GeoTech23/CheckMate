@@ -46,6 +46,13 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+h2,
+h3,
+h4 {
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 button {
@@ -57,11 +64,13 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.05);
+  background-color: #747bff;
+  color: white;
 }
 
 button:focus,
@@ -77,14 +86,36 @@ form button {
   border: 1px solid black;
 }
 
+@keyframes pulse {
+
+  0% {
+    transform: scale(1)
+  }
+
+  100% {
+    transform: scale(1.4)
+  }
+}
+
+
 #main-logo {
   width: 50px;
+  animation: .75s ease-in-out 0s infinite alternate pulse;
 }
+
+#tagline {
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
 
 input,
 select {
   margin: 10px 0;
-  padding: 5px;
+  padding: 5px 10px;
+  line-height: 23px;
 }
 
 input {
@@ -108,7 +139,8 @@ label {
 
 #add-contact {
   background-color: #30e242;
-  &:hover{
+
+  &:hover {
     background-color: #1dd82f;
   }
 }
