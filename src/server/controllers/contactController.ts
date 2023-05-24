@@ -37,7 +37,16 @@ const contactController = {
 		contactDB
 			.query(queryStr1)
 			.then((data) => {
-				console.log('Succesfully deleted - ', data.rowCount, ' row(s)');
+				console.log('Succesfully deleted - ', data.rowCount, ' row(s) from notes');
+				res.locals.notes = data.rowCount;
+			})
+			.catch((err: Error) => {
+				return next(err);
+			});
+		contactDB
+			.query(queryStr2)
+			.then((data) => {
+				console.log('Succesfully deleted - ', data.rowCount, ' row(s) from contacts');
 				res.locals.contacts = data.rowCount;
 				return next();
 			})
