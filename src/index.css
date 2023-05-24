@@ -46,10 +46,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-  color: white;
 }
 
+
+h1,
 h2,
 h3,
 h4 {
