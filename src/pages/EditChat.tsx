@@ -21,9 +21,6 @@ function EditChat() {
 		const message_text = e.target[1].value;
 		const rating = e.target[2].value;
 
-		// const { contactId } = req.params;
-		// const { message_text, date, rating} = req.body;
-
 		fetch(`/api/chat/${userId}/${currentContact.contactid}`, {
 			method: 'PATCH',
 			headers: {

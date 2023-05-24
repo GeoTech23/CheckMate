@@ -64,25 +64,56 @@ function EditContact() {
 			<SubmitDiv>
 				<Form onSubmit={handleSubmit}>
 					<label>First Name:</label>
-					<input type='text' placeholder='First Name' required></input>
+					<input
+						type='text'
+						defaultValue={currentContact.firstname}
+						required></input>
 					<label>Last Name:</label>
-					<input type='text' placeholder='Last Name' required></input>
+					<input
+						type='text'
+						defaultValue={currentContact.lastname}
+						required></input>
 					<label>Phone Number:</label>
-					<input type='text' placeholder='xxx-xxx-xxxx' required></input>
+					<input
+						type='text'
+						defaultValue={currentContact.phonenumber}
+						required></input>
 					<label>Relationship:</label>
 					<select required>
-						<option value='friend'>Friend</option>
-						<option value='family'>Family</option>
-						<option value='significant other'>Significant Other</option>
-						<option value='coworker'>Coworker</option>
+						<option
+							value='friend'
+							selected={currentContact.relation === 'friend'}>
+							Friend
+						</option>
+						<option
+							value='family'
+							selected={currentContact.relation === 'family'}>
+							Family
+						</option>
+						<option
+							value='significant other'
+							selected={currentContact.relation === 'significant other'}>
+							Significant Other
+						</option>
+						<option
+							value='coworker'
+							selected={currentContact.relation === 'coworker'}>
+							Coworker
+						</option>
 					</select>
 					<label>Days Before Reminder:</label>
 					<input
 						type='text'
-						placeholder='Days before reminder'
+						defaultValue={currentContact.days_before_reminder}
 						required></input>
 					<label>Birthday:</label>
-					<input type='date' required />
+					<input
+						type='date'
+						required
+						defaultValue={new Date(
+							Date.parse(currentContact.birthday)
+						).toLocaleDateString()}
+					/>
 
 					<button type='submit'>Edit Contact</button>
 					<button type='button' className='delete' onClick={handleDelete}>
