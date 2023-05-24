@@ -16,3 +16,20 @@ To run Checkmate locally, ensure that you have the following installed:
 
 - Node.js
 - npm (Node Package Manager)
+
+## Getting Started
+
+Follow the steps below to set up and run Checkmate on your local machine:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/checkmate.git
+
+# Navigate to the project directory
+cd checkmate
+
+# Install the dependencies
+npm install
+
+# Start the development server
+npm run dev
