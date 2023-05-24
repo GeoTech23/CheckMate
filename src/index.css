@@ -12,6 +12,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+}
+
+body {
+  background-color: #93c3fc;
 }
 
 a {
@@ -19,6 +30,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -36,6 +48,15 @@ h1 {
   line-height: 1.1;
 }
 
+
+h1,
+h2,
+h3,
+h4 {
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -45,14 +66,156 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.05);
+  background-color: #8971d0;
+  color: white;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+form button {
+  margin-top: 20px;
+}
+
+.delete {
+  &:hover {
+    background-color: red;
+  }
+}
+
+
+.call-log-container,
+.contact-header {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #61b0ff;
+  border-radius: 5px;
+  padding: 20px 0;
+  color: white;
+}
+
+.contact-header {
+  margin: 20px 0px;
+  position: relative;
+}
+
+@keyframes pulse {
+
+  0% {
+    transform: scale(1)
+  }
+
+  100% {
+    transform: scale(1.4)
+  }
+}
+
+
+#main-logo {
+  width: 50px;
+  animation: .75s ease-in-out 0s infinite alternate pulse;
+}
+
+#tagline {
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+input,
+select {
+  margin: 10px 0;
+  padding: 5px 10px;
+  line-height: 23px;
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+}
+
+.user-link {
+  color: white
+}
+
+.relat-icon {
+  height: 100px;
+  align-self: flex-end;
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2)
+  }
+}
+
+.contact-wrapper {
+  transition: .3s;
+  margin: 5px;
+  padding: 10px;
+
+}
+
+label {
+  text-align: center;
+  font-weight: bold;
+}
+
+#add-contact {
+  background-color: #30e242;
+
+  &:hover {
+    background-color: #1dd82f;
+  }
+}
+
+
+.edit-log {
+  background-color: transparent;
+  padding: 1px;
+  transition: .3s;
+
+  &:hover {
+    background-color: transparent;
+    color: red;
+    transform: scale(1.7)
+  }
+
+  &:active,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.log-text {
+
+  position: relative;
+  top: 30px;
+  font-size: 18px;
+  margin: 0 20px;
+  line-height: 27px;
+
+}
+
+.edit-contact-icon {
+  font-size: 20px;
+  position: absolute;
+  right: 27px;
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.6)
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -60,9 +223,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
