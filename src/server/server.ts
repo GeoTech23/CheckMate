@@ -17,11 +17,11 @@ app.use('/contact', contactRouter);
 
 app.post('/signup', authController.createUser, (req: Request, res: Response) => {
 	if (res.locals.user === true) {
-	  console.log(res.locals.user)
-	  return res.status(200).json(res.locals.user)
+		console.log(res.locals.user)
+		return res.status(200).json(res.locals.user)
 	} else {
-	  console.log(false)
-	  throw new Error
+		console.log(false)
+		throw new Error
 	}
 })
 
