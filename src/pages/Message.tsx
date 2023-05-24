@@ -32,7 +32,7 @@ function Message({ message }) {
           <span>rating: {message.rating}</span>
           <button onClick={handleDelete}>X</button>
             </MessageTitle>
-          <p>{message.message}</p>
+          <p>{message.message_text}</p>
        </MessageDiv>
     </>
   );

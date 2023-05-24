@@ -4,14 +4,15 @@ import contactDB from '../models/contactModel.ts';
 const chatController = {
   //taking a contactid and returning all the messages associated with that contact
   getChat: (req, res, next) => {
-    const { contactId } = req.params.userId;
+    console.log('getting chats')
+    const { contactId } = req.params;
     const queryStr = `
     SELECT * FROM notes WHERE contactId = ${ contactId };
     `
     contactDB.query(queryStr)
       .then((data) => {
-        console.log('data here', data)
-        res.locals.notes = data.rows; 
+        console.log('data here', data.rows)
+        res.locals.chats = data.rows; 
         return next(); 
       }
       )

@@ -1,9 +1,10 @@
 import authController from '../controllers/authController.ts';
+import contactController from '../controllers/contactController.ts';
 import {Router} from 'express'
 const authRouter = Router();
 
-authRouter.post('/', authController.verifyUser, (req, res, next) => {
-  res.redirect(`/contact/${res.locals.user.userId}`);
+authRouter.post('/', authController.verifyUser, contactController.getContacts, (req, res, next) => {
+  res.status(200).json(res.locals)
 })
 
 authRouter.get('/', (req, res) => {

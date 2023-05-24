@@ -28,12 +28,16 @@ function Signup() {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ username, password1, password2, phoneNumber }),
+			body: JSON.stringify({ username, password: password1, phoneNumber }),
 		})
 			.then((res) => res.json())
-			.then(() => {
-				setUser(username);
-				navigate('/dashboard');
+			.then((res) => {
+				if (res) {
+					window.alert('Account created!');
+					navigate('/');
+				} else {
+					window.alert('Error with sign-up. Please try again later.');
+				}
 			})
 			.catch((err) => {
 				console.log(err);
@@ -54,7 +58,9 @@ function Signup() {
 				</Form>
 			</SubmitDiv>
 
-			<Link to='/'><button style={{margin: '20px'}}>← Back to Login</button></Link>
+			<Link to='/'>
+				<button style={{ margin: '20px' }}>← Back to Login</button>
+			</Link>
 			<Link to='/dashboard'>
 				<p>Dashboard</p>
 			</Link>
