@@ -69,7 +69,7 @@ const contactController = {
 			.query(queryStr)
 			.then((data) => {
 				console.log('Successsfully added - ', data.rowCount, ' contact');
-				res.locals.contacts = data.rowCount;
+				res.locals.user.userId = userId
 				return next();
 			})
 			.catch((err: Error) => {

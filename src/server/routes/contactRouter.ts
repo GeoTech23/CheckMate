@@ -10,9 +10,9 @@ contactRouter.get('/:userId', contactController.getContacts, (req,res)=> {
 })
 
 //Adding contact
-contactRouter.post('/:userId', contactController.addContact, (req,res)=> {
+contactRouter.post('/:userId', contactController.addContact, contactController.getContacts, (req,res)=> {
   console.log('Added contact')
-  return res.status(200).json(res.locals.contacts)
+  return res.status(200).json(res.locals)
 })
 
 // Delete contact

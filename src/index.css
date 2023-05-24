@@ -97,6 +97,7 @@ form button {
 
 .contact-header {
   margin: 20px 0px;
+  position: relative;
 }
 
 @keyframes pulse {
@@ -198,6 +199,15 @@ label {
   margin: 0 20px;
   line-height: 27px;
 
+}
+
+.edit-contact-icon {
+  font-size: 20px;
+  position: absolute;
+  right: 27px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 @media (prefers-color-scheme: light) {

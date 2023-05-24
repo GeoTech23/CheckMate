@@ -9,6 +9,7 @@ import iconSrc from '../utils/iconSrc';
 // add params inside contact ()
 function Contact() {
 	const [messages, setMessages] = useState([]);
+	const [refresh, setRefresh] = useState(false);
 	const { id } = useParams();
 	const navigate = useNavigate();
 	const { currentContact, userId } = React.useContext(StoreContext);
@@ -32,8 +33,7 @@ function Contact() {
 			.catch((err) => {
 				console.log('Error in Contact.tsx:', err);
 			});
-	}, []);
-
+	}, [refresh]);
 
 	// add chat button handleClick event to navigate to AddChat page
 	function handleClick() {
@@ -42,20 +42,27 @@ function Contact() {
 
 	// loop through messages to build msgs array with Message components
 	const msgs = messages.map((msg) => {
-		return <Message message={msg} />;
+		return <Message setRefresh={setRefresh} message={msg} />;
 	});
 
 	return (
 		<>
 			<div className='contact-header'>
 				<img className='relat-icon' src={iconSrc(currentContact.relation)} />
+				<span
+					className='edit-contact-icon'
+					onClick={() => {
+						navigate('/editcontact');
+					}}>
+					✏️
+				</span>
 				<h2>
 					{currentContact.firstname} {currentContact.lastname}
 				</h2>
-				<div style={{marginTop: '10px' }}>
+				<div style={{ marginTop: '10px' }}>
 					<h3>📞 {currentContact.phonenumber}</h3>
 					<h4>
-						🎂 {' '}
+						🎂{' '}
 						{new Date(Date.parse(currentContact.birthday)).toLocaleDateString()}
 					</h4>
 				</div>

@@ -5,7 +5,7 @@ import MessageContainerDiv from '../components/styled/MessageContainerDiv';
 import { StoreContext } from '../store';
 import { useNavigate } from 'react-router-dom';
 
-function Message({ message }) {
+function Message({ message, setRefresh }) {
 	const navigate = useNavigate();
 	const { userId, currentContact, setCurrentMessage } =
 		useContext(StoreContext);
@@ -22,7 +22,7 @@ function Message({ message }) {
 				.then((res) => res.json())
 				.then(() => {
 					window.alert('Message deleted');
-					// create useEffect to rerener
+					setRefresh(prev => !prev)
 				})
 				.catch((err) => {
 					window.alert(`Error deleting message: ${err}`);
