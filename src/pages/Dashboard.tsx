@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import DashDiv from '../components/styled/DashDiv';
 import { StoreContext } from '../store';
-import iconSrc from '../utils/iconSrc';
 
 function Dashboard() {
 	const { user, setUser, setLoggedIn, setCurrentContact, contacts } =

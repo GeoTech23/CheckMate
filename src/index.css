@@ -71,10 +71,7 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  background: rgb(123, 171, 255);
-  background: radial-gradient(circle,
-      rgba(123, 171, 255, 1) 19%,
-      rgba(106, 158, 255, 1) 100%);
+  background-color: #747bff;
   color: white;
 }
 
@@ -92,10 +89,7 @@ form button {
 .call-log-container,
 .contact-header {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: rgb(123, 171, 255);
-  background: radial-gradient(circle,
-      rgba(123, 171, 255, 1) 19%,
-      rgba(106, 158, 255, 1) 100%);
+  background-color: #d5ebfc;
   border-radius: 5px;
   padding: 20px 0;
   color: white;

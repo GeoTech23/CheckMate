@@ -7,6 +7,7 @@ export default ({ children }) => {
 	const [currentContact, setCurrentContact] = React.useState({});
 	const [userId, setUserId] = React.useState('');
 	const [contacts, setContacts] = React.useState([]);
+	const [currentMessage, setCurrentMessage] = React.useState({})
 
 	return (
 		<StoreContext.Provider
@@ -21,6 +22,8 @@ export default ({ children }) => {
 				setUserId,
 				contacts,
 				setContacts,
+				currentMessage,
+				setCurrentMessage
 			}}>
 			{children}
 		</StoreContext.Provider>

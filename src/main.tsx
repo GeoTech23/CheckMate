@@ -9,6 +9,7 @@ import Login from './pages/Login.tsx';
 import Signup from './pages/Signup.tsx';
 import Contact from './pages/Contact.tsx';
 import StoreProvider from './store.tsx';
+import EditChat from './pages/EditChat.tsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
 	{ path: '/addchat', element: <AddChat /> },
 	{ path: '/contact/:id', element: <Contact /> },
 	{ path: '/chat', element: <AddChat /> },
+	{ path: '/editchat', element: <EditChat /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

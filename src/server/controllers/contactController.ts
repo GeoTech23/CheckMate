@@ -27,12 +27,15 @@ const contactController = {
 	//taking a contactid and returning all the messages associated with that contact
 	deleteContact: (req: Request, res: Response, next: NextFunction) => {
 		const { userId, contactId } = req.params;
-		const queryStr = `
+		const queryStr1 = `
+    DELETE FROM notes WHERE contactid = ${contactId} AND userid = '${userId}'; 
+    `;
+		const queryStr2 = `
     DELETE FROM contacts WHERE contactid = ${contactId} AND userid = '${userId}'; 
     `;
 		//this query returns the number of deleted rows
 		contactDB
-			.query(queryStr)
+			.query(queryStr1)
 			.then((data) => {
 				console.log('Succesfully deleted - ', data.rowCount, ' row(s)');
 				res.locals.contacts = data.rowCount;
@@ -46,11 +49,11 @@ const contactController = {
 	//taking a contactid and a message, datem  and adding it to the database
 	addContact: (req: Request, res: Response, next: NextFunction) => {
 		const { userId } = req.params;
-		const { firstName, lastName, birthday, phoneNumber, days_before_reminder } =
+		const { firstName, lastName, birthday, phoneNumber, days_before_reminder, relationship} =
 			req.body;
 		const queryStr = `
-    INSERT INTO contacts (firstname, lastname, birthday, phonenumber, days_before_reminder, userId)
-    VALUES ('${firstName}', '${lastName}', '${birthday}', '${phoneNumber}', ${days_before_reminder}, '${userId}');
+    INSERT INTO contacts (firstname, lastname, birthday, phonenumber, days_before_reminder, userId, relation)
+    VALUES ('${firstName}', '${lastName}', '${birthday}', '${phoneNumber}', ${days_before_reminder}, '${userId}', '${relationship}');
     `;
 		//this query returns number of rows added
 		contactDB

@@ -34,36 +34,6 @@ function Contact() {
 			});
 	}, []);
 
-	// const mockData = {
-	// 	user: 'grandma',
-	// 	phone_number: '555-555-5555',
-	// 	chats: [
-	// 		{
-	// 			id: 1,
-	// 			date: '10/12/1999',
-	// 			message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `,
-	// 			rating: 10,
-	// 		},
-	// 		{
-	// 			id: 2,
-	// 			date: '10/13/1999',
-	// 			message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `,
-	// 			rating: 8,
-	// 		},
-	// 		{
-	// 			id: 3,
-	// 			date: '10/14/1999',
-	// 			message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `,
-	// 			rating: 2,
-	// 		},
-	// 		{
-	// 			id: 4,
-	// 			date: '10/14/1999',
-	// 			message: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. `,
-	// 			rating: 2,
-	// 		},
-	// 	],
-	// };
 
 	// add chat button handleClick event to navigate to AddChat page
 	function handleClick() {
