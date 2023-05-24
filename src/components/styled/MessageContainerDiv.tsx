@@ -4,7 +4,7 @@ const MessageContainerDiv = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 500px;
   width: 600px;
   background-color: #d5ebfc;

@@ -82,7 +82,8 @@ form button {
   margin-top: 20px;
 }
 
-.call-log-container, .contact-header {
+.call-log-container,
+.contact-header {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: #d5ebfc;
   border-radius: 5px;
@@ -163,6 +164,33 @@ label {
   &:hover {
     background-color: #1dd82f;
   }
+}
+
+
+.edit-log {
+  background-color: transparent;
+  padding: 1px;
+
+  &:hover {
+    background-color: transparent;
+    color: red;
+  }
+
+  &:active,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.log-text {
+
+  position: relative;
+  top: 30px;
+  font-size: 18px;
+  margin: 0 20px;
+  line-height: 27px;
+
 }
 
 @media (prefers-color-scheme: light) {

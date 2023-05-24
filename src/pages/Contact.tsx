@@ -80,7 +80,7 @@ function Contact() {
 			<div className='contact-header'>
 				<img
 					className='relat-icon'
-					src={iconSrc(currentContact.relationship)}
+					src={iconSrc(currentContact.relation)}
 				/>
 				<h2>{currentContact.firstname} {currentContact.lastname}</h2>
 				<h3>{currentContact.phonenumber}</h3>
