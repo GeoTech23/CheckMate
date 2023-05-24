@@ -22,6 +22,12 @@ function Signup() {
 		// console.log(username, password1, password2, phoneNumber);
 		if (password1 !== password2) {
 			window.alert('Passwords do not match');
+			return;
+		}
+
+		if (!phoneNumber.match(/^\d{3}\-\d{3}\-\d{4}$/gm)) {
+			window.alert('Phone number format incorrect. Ex: 123-456-7890');
+			return;
 		}
 		fetch('/api/signup', {
 			method: 'POST',
