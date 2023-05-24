@@ -60,7 +60,7 @@ function scheduleMessage() {
   }, timeOut);
 }
 
-scheduleMessage(); 
+// scheduleMessage(); 
 
 
 
