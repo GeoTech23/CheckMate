@@ -46,3 +46,10 @@ Make your changes and commit them.
 Push your changes to your forked repository.
 Open a pull request, providing a detailed description of your changes.
 Please ensure that your contributions adhere to our code of conduct.
+
+## Running Tests
+Checkmate comes with a test suite to ensure the application's functionality remains robust. Run the tests using the following command:
+
+```bash
+npm test
+```
