@@ -53,3 +53,6 @@ Checkmate comes with a test suite to ensure the application's functionality rema
 ```bash
 npm test
 ```
+
+## License
+Checkmate is released under the MIT License.
