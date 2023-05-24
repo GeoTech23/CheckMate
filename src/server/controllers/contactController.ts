@@ -27,7 +27,7 @@ const contactController = {
 	//taking a contactid and returning all the messages associated with that contact
 	deleteContact: (req: Request, res: Response, next: NextFunction) => {
 		const { userId, contactId } = req.params;
-		const queryStr1= `
+		const queryStr1 = `
     DELETE FROM notes WHERE contactid = ${contactId}; 
     `;
 		const queryStr2 = `
@@ -37,8 +37,13 @@ const contactController = {
 		contactDB
 			.query(queryStr1)
 			.then((data) => {
-				console.log('Succesfully deleted - ', data.rowCount, ' row(s) from notes');
+				console.log(
+					'Succesfully deleted - ',
+					data.rowCount,
+					' row(s) from notes'
+				);
 				res.locals.notes = data.rowCount;
+				res.locals.user = { userId };
 			})
 			.catch((err: Error) => {
 				return next(err);
@@ -46,7 +51,11 @@ const contactController = {
 		contactDB
 			.query(queryStr2)
 			.then((data) => {
-				console.log('Succesfully deleted - ', data.rowCount, ' row(s) from contacts');
+				console.log(
+					'Succesfully deleted - ',
+					data.rowCount,
+					' row(s) from contacts'
+				);
 				res.locals.contacts = data.rowCount;
 				return next();
 			})
@@ -58,8 +67,14 @@ const contactController = {
 	//taking a contactid and a message, datem  and adding it to the database
 	addContact: (req: Request, res: Response, next: NextFunction) => {
 		const { userId } = req.params;
-		const { firstName, lastName, birthday, phoneNumber, days_before_reminder, relationship} =
-			req.body;
+		const {
+			firstName,
+			lastName,
+			birthday,
+			phoneNumber,
+			days_before_reminder,
+			relationship,
+		} = req.body;
 		const queryStr = `
     INSERT INTO contacts (firstname, lastname, birthday, phonenumber, days_before_reminder, userId, relation)
     VALUES ('${firstName}', '${lastName}', '${birthday}', '${phoneNumber}', ${days_before_reminder}, '${userId}', '${relationship}');
@@ -69,7 +84,7 @@ const contactController = {
 			.query(queryStr)
 			.then((data) => {
 				console.log('Successsfully added - ', data.rowCount, ' contact');
-				res.locals.contacts = data.rowCount;
+				res.locals.user = { userId };
 				return next();
 			})
 			.catch((err: Error) => {
@@ -79,27 +94,30 @@ const contactController = {
 	//this function takes a contactid and a message and updates the contact in the database
 	updateContact: (req: Request, res: Response, next: NextFunction) => {
 		const { userId, contactId } = req.params;
-		const { firstName, lastName, birthday, phoneNumber, days_before_reminder, relationship} =
-			req.body;
+		const {
+			firstName,
+			lastName,
+			birthday,
+			phoneNumber,
+			days_before_reminder,
+			relationship,
+		} = req.body;
 		const queryStr = `
 			UPDATE contacts SET firstname = '${firstName}', lastname = '${lastName}', birthday = '${birthday}', phonenumber = '${phoneNumber}', days_before_reminder = ${days_before_reminder}, relation = '${relationship}'
 			WHERE contactid = ${contactId} AND userid = '${userId}';
 			`;
 		//this query returns number of rows added
 		contactDB
-		.query(queryStr)
-		.then((data) => {
-			console.log('Successsfully updated - ', data.rowCount, ' contact');
-			res.locals.contacts = data.rowCount;
-			return next();
-		}
-		)
-		.catch((err: Error) => {
-			return next(err);
-		}
-		);
+			.query(queryStr)
+			.then((data) => {
+				console.log('Successsfully updated - ', data.rowCount, ' contact');
+				res.locals.user = { userId };
+				return next();
+			})
+			.catch((err: Error) => {
+				return next(err);
+			});
 	},
-
 };
 
 export default contactController;

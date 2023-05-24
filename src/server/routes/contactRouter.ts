@@ -10,21 +10,21 @@ contactRouter.get('/:userId', contactController.getContacts, (req,res)=> {
 })
 
 //Adding contact
-contactRouter.post('/:userId', contactController.addContact, (req,res)=> {
+contactRouter.post('/:userId', contactController.addContact, contactController.getContacts, (req,res)=> {
   console.log('Added contact')
-  return res.status(200).json(res.locals.contacts)
+  return res.status(200).json(res.locals)
 })
 
 // Delete contact
-contactRouter.delete('/:userId/:contactId', contactController.deleteContact, (req,res)=> {
+contactRouter.delete('/:userId/:contactId', contactController.deleteContact, contactController.getContacts, (req,res)=> {
   console.log('Deleted contact')
-  return res.status(200).json(res.locals.contacts)
+  return res.status(200).json(res.locals)
 })
 
 //Update contact
-contactRouter.patch('/:userId/:contactId', contactController.updateContact, (req,res)=> {
+contactRouter.patch('/:userId/:contactId', contactController.updateContact, contactController.getContacts, (req,res)=> {
   console.log('Updated contact')
-  return res.status(200).json(res.locals.contacts)
+  return res.status(200).json(res.locals)
 })
 
 

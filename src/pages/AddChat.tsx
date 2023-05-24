@@ -33,8 +33,8 @@ function AddChat() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log('success', data)
-				navigate('/dashboard');
+				console.log('success', data);
+				navigate(`/contact/${currentContact.contactid}`);
 			})
 			.catch((err) => {
 				console.log(err);
