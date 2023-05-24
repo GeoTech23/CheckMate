@@ -78,11 +78,10 @@ function Contact() {
 	return (
 		<>
 			<div className='contact-header'>
-				<img
-					className='relat-icon'
-					src={iconSrc(currentContact.relation)}
-				/>
-				<h2>{currentContact.firstname} {currentContact.lastname}</h2>
+				<img className='relat-icon' src={iconSrc(currentContact.relation)} />
+				<h2>
+					{currentContact.firstname} {currentContact.lastname}
+				</h2>
 				<h3>{currentContact.phonenumber}</h3>
 			</div>
 			<div className='call-log-container'>
@@ -90,7 +89,7 @@ function Contact() {
 				<button
 					style={{ width: '200px', margin: '20px 0' }}
 					onClick={handleClick}>
-					Add Chat
+					<span style={{padding: '0 10px'}}>☎</span>Add Chat
 				</button>
 				<MessageContainerDiv>{msgs}</MessageContainerDiv>
 			</div>

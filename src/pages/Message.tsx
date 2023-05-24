@@ -39,7 +39,11 @@ function Message({ message }) {
 						X
 					</button>
 				</MessageTitle>
-				<p className='log-text'>asdfladksjf asdlkjf l;asdkfj ;adlsfjdlskfj kasdjfl;sdkhjf ;alshjdf kljhasflkjdhflk abnmvkljhgl airubg vlasdjndvlk jasvbilousdfbglaksjf nklsdav bnfildaughlbnsk afjnsdfa f asdf</p>
+				<p className='log-text'>
+					asdfladksjf asdlkjf l;asdkfj ;adlsfjdlskfj kasdjfl;sdkhjf ;alshjdf
+					kljhasflkjdhflk abnmvkljhgl airubg vlasdjndvlk jasvbilousdfbglaksjf
+					nklsdav bnfildaughlbnsk afjnsdfa f asdf
+				</p>
 			</MessageDiv>
 		</>
 	);
