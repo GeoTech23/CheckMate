@@ -33,3 +33,5 @@ npm install
 
 # Start the development server
 npm run dev
+
+This will launch the Checkmate application on your local server. Open your web browser and visit http://localhost:3000 to access Checkmate.
