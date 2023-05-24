@@ -46,16 +46,16 @@ function EditContact() {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
-			}
+			},
 		})
-		.then((res) => res.json())
-		.then((data) => {
-			setContacts(data.contacts);
-			navigate(`/dashboard`)
-		}).
-		catch((err) => {
-			console.log('Error: ', err);
-		})
+			.then((res) => res.json())
+			.then((data) => {
+				setContacts(data.contacts);
+				navigate(`/dashboard`);
+			})
+			.catch((err) => {
+				console.log('Error: ', err);
+			});
 	}
 
 	return (
@@ -84,8 +84,10 @@ function EditContact() {
 					<label>Birthday:</label>
 					<input type='date' required />
 
-					<button type='submit'>Add Contact</button>
-					<button type='submit' onClick={handleDelete}>Delete Contact</button>
+					<button type='submit'>Edit Contact</button>
+					<button type='button' className='delete' onClick={handleDelete}>
+						Delete Contact
+					</button>
 				</Form>
 			</SubmitDiv>
 			<Link to='/dashboard'>
