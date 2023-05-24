@@ -40,12 +40,12 @@ This will launch the Checkmate application on your local server. Open your web b
 ## Contributing
 We welcome contributions from the community! If you'd like to contribute to Checkmate, please follow these guidelines:
 
-Fork the repository.
-Create a new branch.
-Make your changes and commit them.
-Push your changes to your forked repository.
-Open a pull request, providing a detailed description of your changes.
-Please ensure that your contributions adhere to our code of conduct.
+- Fork the repository.
+- Create a new branch.
+- Make your changes and commit them.
+- Push your changes to your forked repository.
+- Open a pull request, providing a detailed description of your changes.
+- Please ensure that your contributions adhere to our code of conduct.
 
 ## Running Tests
 Checkmate comes with a test suite to ensure the application's functionality remains robust. Run the tests using the following command:
