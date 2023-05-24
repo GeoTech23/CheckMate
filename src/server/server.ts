@@ -4,10 +4,77 @@ import chatRouter from './routes/chatRouter.ts';
 import contactRouter from './routes/contactRouter.ts';
 import authRouter from './routes/authRouter.ts'
 import authController from './controllers/authController.ts'
+import Twilio from 'twilio'
+import { dirname } from 'path';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// import path from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+dotenv.config({path: path.resolve(dirname('./.env'))})
+
 const app = express();
 const PORT = 3000;
+
+
+const envPath = path.resolve(__dirname, '.env');
+dotenv.config({ path: envPath });
+
+
+
+
+// Your Account SID, Subaccount SID Auth Token from console.twilio.com
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+const authToken = process.env.TWILIO_AUTH_TOKEN 
+
+console.log('data here', new Date())
+
+console.log('accountSId', accountSid)
+
+const client = Twilio(accountSid, authToken);
+const numToMsg = process.env.NUMS
+const twilioNum = process.env.TWILIO_NUM
+
+function sendMessage() {
+
+    client.messages.create({
+      body: 'testingg',
+      to:  numToMsg,
+      from: twilioNum, // From a valid Twilio number
+      // sendAt: new Date('2023-05-24T15:43:01+0000'),
+      // scheduleType: 'fixed',
+    })
+    .then(message => console.log(message.status))
+
+}
+
+function scheduleMessage() {
+  const now: Date = new Date();
+  const nextSendTime: Date = new Date(now.getTime() + 2 * 60 * 1000); // Set the next send time 2 minutes later
+  const timeOut: number = nextSendTime.getTime() - now.getTime();
+
+  setTimeout(async () => {
+    await sendMessage();
+    scheduleMessage(); 
+  }, timeOut);
+}
+
+// scheduleMessage(); 
+
+
+
+// const client = Twilio(accountSid, authToken);
+// client.messages
+//   .create({
+//     body: 'newMessage',
+//     to: '+16465525220', // Text your number
+//     from: '+18665615608', // From a valid Twilio number
+//     sendAt: new Date('2023-05-24T15:43:01+0000'),
+//     scheduleType: 'fixed',
+//   })
+//   .then((message) => console.log(message.sid));
+  
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
@@ -29,7 +96,8 @@ app.post('/signup', authController.createUser, (req: Request, res: Response) => 
 
 //catch-all router handler
 app.use('/', (_req: Request, res: Response) => {
-	console.log('Page not found')
+	console.log('In catch-all route')
+  res.status(404).send('Page Not Found')
 });
 
 //Global error handler
