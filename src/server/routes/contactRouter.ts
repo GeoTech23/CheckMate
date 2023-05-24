@@ -22,10 +22,10 @@ contactRouter.delete('/:userId/:contactId', contactController.deleteContact, (re
 })
 
 //Update contact
-// contactRouter.patch('/', contactController.updateContact, (req,res)=> {
-//   console.log('Updated contact')
-//   return res.status(200).json(res.locals.contacts)
-// })
+contactRouter.patch('/:userId/:contactId', contactController.updateContact, (req,res)=> {
+  console.log('Updated contact')
+  return res.status(200).json(res.locals.contacts)
+})
 
 
 export default contactRouter;
