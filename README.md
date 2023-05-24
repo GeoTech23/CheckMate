@@ -36,3 +36,13 @@ npm run dev
 ```
 
 This will launch the Checkmate application on your local server. Open your web browser and visit http://localhost:3000 to access Checkmate.
+
+## Contributing
+We welcome contributions from the community! If you'd like to contribute to Checkmate, please follow these guidelines:
+
+Fork the repository.
+Create a new branch.
+Make your changes and commit them.
+Push your changes to your forked repository.
+Open a pull request, providing a detailed description of your changes.
+Please ensure that your contributions adhere to our code of conduct.
