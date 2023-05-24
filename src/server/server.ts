@@ -38,31 +38,20 @@ const twilioNum = process.env.TWILIO_NUM
 
 function sendMessage() {
 
-  numToMsg.forEach(function(num){
-    let message = client.messages.create({
-      body: 'Time to call mom! ENJOY LUNCH ADAM',
-      to:  num,
+    client.messages.create({
+      body: 'testingg',
+      to:  numToMsg,
       from: twilioNum, // From a valid Twilio number
       // sendAt: new Date('2023-05-24T15:43:01+0000'),
       // scheduleType: 'fixed',
     })
     .then(message => console.log(message.status))
-  })
-}
-    // .create({
 
-    // })
-//     .then((message) => {
-//       console.log('Message sent successfully with SID:', message.sid);
-//     })
-//     .catch((error) => {
-//       console.error('Error sending message:', error);
-//     });
-// }
+}
 
 function scheduleMessage() {
   const now: Date = new Date();
-  const nextSendTime: Date = new Date(now.getTime() + 1 * 60 * 1000); // Set the next send time 2 minutes later
+  const nextSendTime: Date = new Date(now.getTime() + 2 * 60 * 1000); // Set the next send time 2 minutes later
   const timeOut: number = nextSendTime.getTime() - now.getTime();
 
   setTimeout(async () => {
@@ -71,7 +60,7 @@ function scheduleMessage() {
   }, timeOut);
 }
 
-// scheduleMessage(); 
+scheduleMessage(); 
 
 
 
