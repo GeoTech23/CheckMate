@@ -48,8 +48,9 @@ const authController = {
         res.locals.user = false;
         return next();
       } else {
+        console.log('Creating a new user')
           // const newUser = new User(username, password)
-          const newUser = User.create({ username: username, password: hashPw(password)})
+          User.create({ username: username, password: hashPw(password)})
           // newUser.create()
             .then((data) => {
               console.log('User saved:', data)

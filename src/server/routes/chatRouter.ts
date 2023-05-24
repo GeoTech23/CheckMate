@@ -16,13 +16,13 @@ chatRouter.post('/:userId/:contactId', chatController.addChat, (_req,res)=> {
 })
 
 //Delete chat
-chatRouter.delete('/:userId/:contactId/:messageId', chatController.deleteChat, (_req,res)=> {
+chatRouter.delete('/:userId/:contactId', chatController.deleteChat, (_req,res)=> {
   console.log('Deleted chat')
   return res.status(200).json(res.locals.chats)
 })
 
 //Update chat
-chatRouter.patch('/:userId/:contactId/:messageId', chatController.updateChat, (_req,res)=> {
+chatRouter.patch('/:userId/:contactId', chatController.updateChat, (_req,res)=> {
   console.log('Updated chat')
   return res.status(200).json(res.locals.chats)
 })

@@ -6,8 +6,14 @@ const MessageTitle = styled.div`
   justify-content: space-between;
   font-weight: bold;
   color: black;
-  align-items: center;
-  padding: 0 10px;
+  align-items: baseline;
+  height: 36px;
+  margin-top: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: linear-gradient(
+   white, white 33px,
+   pink 35px, pink 36px);
   
 `
 export default MessageTitle;

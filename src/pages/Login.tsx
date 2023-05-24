@@ -50,14 +50,16 @@ function Login() {
 				<h2>Login</h2>
 				<Form onSubmit={handleSubmit}>
 					<input type='text' placeholder='username' required />
-					<input type='text' placeholder='password' required />
+					<input type='password' placeholder='password' required />
 					<button type='submit'>Login</button>
 				</Form>
 			</SubmitDiv>
 			<p style={{ color: 'white' }}>Don't have an account?</p>
-			<Link to='/signup'><button style={{margin: '10px'}}>Sign-up</button></Link>
+			<Link to='/signup'>
+				<button style={{ margin: '10px' }}>Sign-up</button>
+			</Link>
 			<Link to='/dashboard'>
-				<p > To Dashboard </p>
+				<p> To Dashboard </p>
 			</Link>
 		</>
 	);

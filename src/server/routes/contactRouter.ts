@@ -6,7 +6,7 @@ const contactRouter = Router();
 //Retrieve contact
 contactRouter.get('/:userId', contactController.getContacts, (req,res)=> {
   console.log('Listing all contacts for specified user')
-  return res.status(200).json(res.locals.contacts)
+  return res.status(200).json(res.locals)
 })
 
 //Adding contact

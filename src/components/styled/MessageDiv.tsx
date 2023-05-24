@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 const MessageDiv = styled.div`
-  background: white;
+	color: black;
 	border-radius: 10px;
 	min-height: 200px;
 	width: 400px;
@@ -9,7 +9,14 @@ const MessageDiv = styled.div`
 	justify-content: center;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	overflow: scroll;
-	padding: 10px;
+	line-height: 27px;
+	background: repeating-linear-gradient(
+		white,
+		white 25px,
+		#9198e5 26px,
+		#9198e5 27px
+	);
+	background-attachment: local;
 `;
 
 export default MessageDiv;

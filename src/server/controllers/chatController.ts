@@ -4,14 +4,15 @@ import contactDB from '../models/contactModel.ts';
 const chatController = {
   //taking a contactid and returning all the messages associated with that contact
   getChat: (req, res, next) => {
-    const { contactId } = req.params.userId;
+    console.log('getting chats')
+    const { contactId } = req.params;
     const queryStr = `
     SELECT * FROM notes WHERE contactId = ${ contactId };
     `
     contactDB.query(queryStr)
       .then((data) => {
-        console.log('data here', data)
-        res.locals.notes = data.rows; 
+        console.log('data here', data.rows)
+        res.locals.chats = data.rows; 
         return next(); 
       }
       )
@@ -30,8 +31,8 @@ const chatController = {
     `
     contactDB.query(queryStr)
       .then((data) => {
-        console.log('Successsfully added - ', data, ' note')
-        res.locals.notes = data; 
+        console.log('Successsfully added - ', data.rowCount, ' note')
+        res.locals.chats = data.rowCount; 
         return next(); 
       }
       )
@@ -42,14 +43,15 @@ const chatController = {
 
   //taking a contactid and a messageid and deleting the message
   deleteChat: (req, res, next) => {
-    const { contactId, messageId } = req.params;
+    const { contactId} = req.params;
+    const { messageId } = req.body;
     const queryStr = `
-    DELETE FROM notes WHERE messageId = ${ messageId } AND contactId = '${ contactId }';
+    DELETE FROM notes WHERE messageId = '${ messageId }' AND contactId = '${ contactId }';
     `
     contactDB.query(queryStr)
       .then((data) => {
-        console.log('Succesfully deleted - ', data, ' row(s)')
-        res.locals.notes = data;
+        console.log('Succesfully deleted - ', data.rowCount, ' row(s)')
+        res.locals.chats = data.rowCount;
         return next();
       }
       )
@@ -59,15 +61,15 @@ const chatController = {
   },
   //taking a contactid and a messageid and updating the message and rating
   updateChat: (req, res, next) => {
-    const { contactId, messageId } = req.params;
-    const {message_text, rating } = req.body;
+    const { contactId } = req.params;
+    const {message_text, rating, date, messageId } = req.body;
     const queryStr = `
-    UPDATE notes SET message_text = '${ message_text }', rating = '${ rating }' WHERE messageId = '${ messageId }' AND contactId = '${ contactId }';
+    UPDATE notes SET message_text = '${ message_text }', rating = '${ rating }', date = '${date}' WHERE messageId = '${ messageId }' AND contactId = '${ contactId }';
     `
     contactDB.query(queryStr)
       .then((data) => {
-        console.log('Succesfully updated - ', data, ' row(s)')
-        res.locals.notes = data;
+        console.log('Succesfully updated - ', data.rowCount, ' row(s)')
+        res.locals.chats = data.rowCount;
         return next();
       }
       )

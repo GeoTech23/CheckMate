@@ -5,9 +5,9 @@ import Form from '../components/styled/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../store';
 
-function AddChat() {
+function EditChat() {
 	const navigate = useNavigate();
-	const { currentContact, userId } = useContext(StoreContext);
+	const { currentContact, userId, currentMessage } = useContext(StoreContext);
 	const ratingOptions = [];
 
 	for (let i = 1; i <= 10; i++) {
@@ -25,16 +25,21 @@ function AddChat() {
 		// const { message_text, date, rating} = req.body;
 
 		fetch(`/api/chat/${userId}/${currentContact.contactid}`, {
-			method: 'POST',
+			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ date, message_text, rating, currentContact }),
+			body: JSON.stringify({
+				date,
+				message_text,
+				rating,
+				messageId: currentMessage.messageid,
+			}),
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log('success', data)
-				navigate('/dashboard');
+				console.log('success', data);
+				navigate(`/contact/${currentContact.contactid}`);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -43,7 +48,7 @@ function AddChat() {
 	}
 	return (
 		<>
-			<h2>Add Chat</h2>
+			<h2>Edit Chat</h2>
 			<SubmitDiv>
 				<Form onSubmit={handleSubmit}>
 					<label>Date</label>
@@ -52,7 +57,7 @@ function AddChat() {
 					<input type='text' placeholder='notes'></input>
 					<label>Rating</label>
 					<select>{ratingOptions}</select>
-					<button type='submit'>Add Chat</button>
+					<button type='submit'>Edit Chat</button>
 				</Form>
 			</SubmitDiv>
 
@@ -63,4 +68,4 @@ function AddChat() {
 	);
 }
 
-export default AddChat;
+export default EditChat;
