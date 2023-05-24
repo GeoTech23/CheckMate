@@ -29,14 +29,14 @@ function Message({ message }) {
 			<MessageDiv>
 				<MessageTitle>
 					<span>
-						date: {new Date(Date.parse(message.date)).toLocaleDateString()}
+						🗓️ {new Date(Date.parse(message.date)).toLocaleDateString()}
 					</span>
 					<span>rating: {message.rating}</span>
 					<button className='edit-log' onClick={handleDelete}>
-						✐
+						✏️
 					</button>
 					<button className='edit-log' onClick={handleDelete}>
-						X
+						❌
 					</button>
 				</MessageTitle>
 				<p className='log-text'>

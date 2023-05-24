@@ -47,12 +47,14 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 h2,
 h3,
 h4 {
   text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 button {
@@ -69,7 +71,10 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  background-color: #747bff;
+  background: rgb(123, 171, 255);
+  background: radial-gradient(circle,
+      rgba(123, 171, 255, 1) 19%,
+      rgba(106, 158, 255, 1) 100%);
   color: white;
 }
 
@@ -82,12 +87,18 @@ form button {
   margin-top: 20px;
 }
 
+
+
 .call-log-container,
 .contact-header {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background-color: #d5ebfc;
+  background: rgb(123, 171, 255);
+  background: radial-gradient(circle,
+      rgba(123, 171, 255, 1) 19%,
+      rgba(106, 158, 255, 1) 100%);
   border-radius: 5px;
   padding: 20px 0;
+  color: white;
 }
 
 .contact-header {

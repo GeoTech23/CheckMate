@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 const MessageDiv = styled.div`
+	color: black;
 	border-radius: 10px;
 	min-height: 200px;
 	width: 400px;

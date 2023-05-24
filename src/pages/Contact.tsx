@@ -14,7 +14,7 @@ function Contact() {
 	const { currentContact, userId } = React.useContext(StoreContext);
 
 	useEffect(() => {
-		console.log('inside useEffect in contact.tsx');
+		console.log(currentContact);
 		fetch(`/api/chat/${userId}/${id}`, {
 			method: 'GET',
 			headers: {
@@ -82,14 +82,20 @@ function Contact() {
 				<h2>
 					{currentContact.firstname} {currentContact.lastname}
 				</h2>
-				<h3>{currentContact.phonenumber}</h3>
+				<div style={{marginTop: '10px' }}>
+					<h3>📞 {currentContact.phonenumber}</h3>
+					<h4>
+						🎂 {' '}
+						{new Date(Date.parse(currentContact.birthday)).toLocaleDateString()}
+					</h4>
+				</div>
 			</div>
 			<div className='call-log-container'>
 				<h3>Chat Log</h3>
 				<button
 					style={{ width: '200px', margin: '20px 0' }}
 					onClick={handleClick}>
-					<span style={{padding: '0 10px'}}>☎</span>Add Chat
+					<span style={{ padding: '0 10px' }}>💬</span>Add Chat
 				</button>
 				<MessageContainerDiv>{msgs}</MessageContainerDiv>
 			</div>
