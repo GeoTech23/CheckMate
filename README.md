@@ -13,6 +13,9 @@ Checkmate is an application designed to help you manage your connections with lo
 - **Real-Time Notifications:** Receive real-time notifications for new messages, activity invitations, and upcoming milestones.
 - **User-friendly Interface:** Enjoy a clean and intuitive user interface that makes it simple to navigate and use Checkmate.
 
+<p align="center">
+  <img src = >
+</p>
 ## Prerequisites
 
 To run Checkmate locally, ensure that you have the following installed:
