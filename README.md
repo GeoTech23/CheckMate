@@ -3,9 +3,9 @@
 Checkmate is an application designed to help you manage your connections with long-distance loved ones. With Checkmate, you can stay in touch, plan activities, and keep track of important milestones with ease.
 
 ## Features
-
-![](https://github.com/GeoTech23/CheckMate/blob/main/public/firsthalfCM.gif)
-
+<p align="center">
+  ![](https://github.com/GeoTech23/CheckMate/blob/main/public/firsthalfCM.gif)
+</p>
 - **Connection Management:** Easily add and manage your connections with long-distance loved ones.
 - **Activity Planning:** Plan and schedule activities to do together, whether it's watching a movie, playing a game, or simply having a video call.
 - **Milestone Tracking:** Keep track of important milestones, such as birthdays, anniversaries, or special events, and get reminders to make sure you don't miss them.
