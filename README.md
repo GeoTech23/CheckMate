@@ -4,7 +4,7 @@ Checkmate is an application designed to help you manage your connections with lo
 
 ## Features
 <p align="center">
-  ![](https://github.com/GeoTech23/CheckMate/blob/main/public/firsthalfCM.gif)
+  <img src = https://github.com/GeoTech23/CheckMate/blob/main/public/firsthalfCM.gif>
 </p>
 - **Connection Management:** Easily add and manage your connections with long-distance loved ones.
 - **Activity Planning:** Plan and schedule activities to do together, whether it's watching a movie, playing a game, or simply having a video call.
