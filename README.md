@@ -14,8 +14,9 @@ Checkmate is an application designed to help you manage your connections with lo
 - **User-friendly Interface:** Enjoy a clean and intuitive user interface that makes it simple to navigate and use Checkmate.
 
 <p align="center">
-  <img src = >
+  <img src = https://github.com/GeoTech23/CheckMate/blob/main/public/CMrest.gif >
 </p>
+
 ## Prerequisites
 
 To run Checkmate locally, ensure that you have the following installed:
