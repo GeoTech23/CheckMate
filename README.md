@@ -3,7 +3,7 @@
 Checkmate is an application designed to help you manage your connections with long-distance loved ones. With Checkmate, you can stay in touch, plan activities, and keep track of important milestones with ease.
 
 <p align="center">
-  <img src = https://github.com/GeoTech23/CheckMate/blob/main/public/firsthalfCM.gif>
+  <img src = https://github.com/GeoTech23/CheckMate/blob/main/public/ezgif.com-video-to-gif%20(1).gif>
 </p>
 
 ## Features
